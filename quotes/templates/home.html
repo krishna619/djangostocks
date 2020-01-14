@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1> STOCKS </h1>
+<br/>
+<br/>
+
+{% if Ticker %}
+    {{Ticker}}
+{% endif %}    
+{% if api %}
+
+    {% if api == "Error.."  %}
+        there is a problem
+    {% else %}
+        
+       EXCHANGE: {{ api.primaryExchange }}<br/>
+       LATEST PRICE:{{ api.latestPrice }}<br/>
+       LATEST SOURCE: {{ api.latestSource }}<br/>
+        UPDATED TIME:{{ api.latestTime }}<br/>
+        MARKET CAPITAL:{{ api.marketCap }}<br/>
+
+        
+    
+    {% endif %}   
+
+{% endif %}   
+
+{% endblock %}
